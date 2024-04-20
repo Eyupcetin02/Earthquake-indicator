@@ -1,0 +1,67 @@
+version: "3.9"
+
+services:
+  express-app:
+    image: serverimage
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/healthserver"]
+      interval: 1m40s
+      timeout: 10s
+      retries: 5
+      start_period: 20s
+    networks:
+      - my-network
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    healthcheck:
+      test: rabbitmq-diagnostics -q ping
+      interval: 40s
+      timeout: 20s
+      retries: 5
+      start_period: 35s
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    networks:
+      - my-network
+
+  mongodb:
+    image: mongo
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: admin
+    ports:
+      - "27017:27017"
+    networks:
+      - my-network
+
+  react-app:
+    image: clientimage
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/healthclient"]
+      interval: 1m35s
+      timeout: 10s
+      retries: 5
+      start_period: 15s
+    depends_on:
+      - express-app
+    networks:
+      - my-network
+
+networks:
+  my-network:
+    driver: bridge

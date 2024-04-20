@@ -1,0 +1,25 @@
+.heading {
+    margin: 0;
+    padding: 0px;
+    background-color: rgb(134, 130, 130);
+    height: 77px;
+    color: white;
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+    }
+  
+ .logo{
+    margin-left: 15px;
+}
+
+ .input{
+    margin-right: 15px;
+    display: flex;
+    flex-direction: column;
+
+ }
+
+ .input input{
+
+ }
