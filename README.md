@@ -16,6 +16,18 @@ Hello, I am Eyüp, I am here with a project that shows the abnormal earthquakes 
 <br>
 The project has been dockerized and piplined, and docker-compose has been written to run with a single command.
 
+## Dependencies
+
+| Client-side             | Server-side          |
+|-------------------------|----------------------|
+| axios        | amqplib|
+| redux-toolkit| body-parser |
+| react   | dotenv|
+| react-dom  | express|
+| maptiler/sdk | axios|
+| typescript| mongoose|
+| leaflet |cors|
+
 ## Project setup
 
 <ul>
@@ -23,10 +35,18 @@ The project has been dockerized and piplined, and docker-compose has been writte
     First, download the project and go to the directory where the project is located with the terminal.
   </li>
   <li>
-    then run docker-compose up -d in terminal
+    then run <b>docker-compose up -d</b> in terminal
   </li>
   <li>
     After the installation is completed, you can access the project's client by going to http://localhost:3000 in your browser.
   </li>
 </ul>
+
+## Scripts
+
+There are 2 scripts in the project. The 1st script sends random latitude, longitude and intensity data to my server every second. In the 2nd script, the user enters his own latitude, longitude and intensity data and sends them to the server.
+
+## Author
+
+LinkedIn Click [Here](https://www.linkedin.com/in/eyupcetin00/) @eyupcetin00
 
