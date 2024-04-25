@@ -1,4 +1,4 @@
-# Earthquake-indicator
+# Earthquake-Indicator
 
 Hello, I am Eyüp, I am here with a project that shows the abnormal earthquakes in the world today on a map.
 
@@ -14,7 +14,7 @@ Hello, I am Eyüp, I am here with a project that shows the abnormal earthquakes 
 <br>
 5- <b>maptiler/sdk</b> library was used for the map in the project.
 <br>
-The project has been dockerized and piplined, and docker-compose has been written to run with a single command.
+The project has been dockerized and docker-compose has been written to run with a single command.
 
 ## Dependencies
 
