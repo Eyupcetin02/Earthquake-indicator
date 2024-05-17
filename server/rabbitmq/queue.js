@@ -63,7 +63,6 @@ const consumeFromErrorQueue = () => {
         async function (msg) {
           try {
             console.log(msg.content + "msg");
-            // Error mesajı alındıktan sonra yapılacak işlemleri burada gerçekleştirebilirsiniz.
           } catch (error) {
             console.error("Error handling message from error queue:", error);
           }
